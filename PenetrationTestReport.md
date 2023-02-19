@@ -184,11 +184,16 @@ software version but are more general and systemic vulnerabilities.
 ```
 ● Rekall’s website contains multiple text input fields that are vulnerable to code injection. For
 example, in the section that allows comments to be left, our team was able to inject a script
-that produced this message:
+that produced this message: 
+
+![image](https://user-images.githubusercontent.com/113793122/219982379-9a461553-dd4b-4111-b9bf-c3e261381925.png)
+
 ```
 ```
 ● The website also allows files to be uploaded, which creates an opportunity for malicious
 users to inject scripts directly to the website.
+```
+```
 ● By utilizing the inspect tool on the login page, our team discovered a username and
 password that allowed us to login to the website:
 ```
