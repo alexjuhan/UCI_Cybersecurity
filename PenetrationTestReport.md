@@ -186,7 +186,7 @@ software version but are more general and systemic vulnerabilities.
 example, in the section that allows comments to be left, our team was able to inject a script
 that produced this message: 
 
-![image](https://user-images.githubusercontent.com/113793122/219982379-9a461553-dd4b-4111-b9bf-c3e261381925.png)
+
 
 ```
 ```
