@@ -442,8 +442,6 @@ server, along with sensitive documents.
 Affected Hosts: 172.22.117.20, 172.22.117.100
 ```
 ```
-```
-```
 Remediation: Monitoring log files and remaining on the lookout for these exploits is the best
 mitigation strategy.
 ```
