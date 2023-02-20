@@ -143,18 +143,20 @@ In-scope and excluded IP addresses and ranges are listed below.
 Each finding was classified according to its severity, reflecting the risk each such vulnerability may
 pose to the business processes implemented by the application, based on the following criteria:
 
-**Critical** : Immediate threat to key business processes.
+**Critical**: Immediate threat to key business processes.
 
-**High** : Indirect threat to key business processes/threatto secondary business processes.
+**High**: Indirect threat to key business processes/threatto secondary business processes.
 
-**Medium** : Indirect or partial threat to business processes.
+**Medium**: Indirect or partial threat to business processes.
 
-**Low** : No direct threat exists; vulnerability maybe leveraged with other vulnerabilities.
+**Low**: No direct threat exists; vulnerability maybe leveraged with other vulnerabilities.
 
 **Informational**: No threat; however, it is data thatmay be used in a future attack.
 
 As the following grid shows, each threat is assessed in terms of both its potential impact on the
 business and the likelihood of exploitation:
+
+![Exploitation Likelihood](https://user-images.githubusercontent.com/113793122/219986277-f67fdc9b-5a5b-477e-992b-ba7d3ce6ddf7.png)
 
 
 ### Summary of Strengths
@@ -189,10 +191,9 @@ software version but are more general and systemic vulnerabilities.
 ● Rekall’s website contains multiple text input fields that are vulnerable to code injection. For
 example, in the section that allows comments to be left, our team was able to inject a script
 that produced this message: 
-
-
-
 ```
+![Day1_Flag3](https://user-images.githubusercontent.com/113793122/219986175-9746bc73-fc9a-40ec-89f6-5c982a586b63.png)
+
 ```
 ● The website also allows files to be uploaded, which creates an opportunity for malicious
 users to inject scripts directly to the website.
@@ -201,13 +202,17 @@ users to inject scripts directly to the website.
 ● By utilizing the inspect tool on the login page, our team discovered a username and
 password that allowed us to login to the website:
 ```
+![image (2)](https://user-images.githubusercontent.com/113793122/219986324-653e9cfa-a10d-4393-889e-e8fec16251e9.png)
 ```
 ● By pinging totalrekall.xyz, our team was able to find the ip address of the Linux server:
 ```
+![Night 2 Flag 2](https://user-images.githubusercontent.com/113793122/219986488-a4ff5e6d-d9fa-4d87-8914-d165117284c1.png)
 ```
 ● A domain lookup of the server provided a lot of exploitable information, such as the
 username of the sysadmin:
 ```
+![Screenshot_20230206_064748](https://user-images.githubusercontent.com/113793122/219986510-4211fb77-b17f-4e9d-931f-6c77c3104402.png)
+
 ```
 ● With this information, our team was able to SSH (remote login) to the Linux server using the
 username: alice. Our team guessed a number of basic passwords to attempt to login using
@@ -216,28 +221,40 @@ insecure password and username combination, with critical levels of vulnerabilit
 server. If a malicious user were to login with this information, they would have unrestricted
 levels of access to the Linux server.
 ```
+![image (12)](https://user-images.githubusercontent.com/113793122/219986574-e57c99c7-1982-421d-906f-355fbb267588.png)
+
 ```
 ● An nmap scan of the Linux server provided our team with all of the host addresses:
 ```
+![host list](https://user-images.githubusercontent.com/113793122/219986597-2ca2f64b-8aa9-4e9b-81f8-80dba072732a.png)
+
 ```
 ● Rekall has a GitHub repository that contains sensitive information, including a username and
 password that our team used to exploit the windows server:
 ```
+![image (13)](https://user-images.githubusercontent.com/113793122/219986612-aa903eb4-4ed4-44a0-a10c-9dcf733d8bfa.png)
+
 ```
 ● The Windows server utilizes an insecure application called Seattle Lab Mail, or SLMail.
 Using an offensive tool called Metasploit, our team was able to use this application as an
 entry point to login to the Windows server:
 ```
+![image (14)](https://user-images.githubusercontent.com/113793122/219986640-851f7d29-75c8-41b8-86ad-252e8c344e38.png)
+
 ```
 ● Using this entry point through the SLMail exploit, our team was able to go further and use
 what is known as a hash dump, which essentially displays all of the server’s usernames and
 passwords:
 ```
+![image (16)](https://user-images.githubusercontent.com/113793122/219986655-49dc4f9c-8f94-445e-8d97-7523738dd6fb.png)
+
 ```
 ● The Windows server is also vulnerable to FTP (File Transfer Protocol) exploits. Using
 Anonymous Authentication, a popular tool used by hackers, our team was able to gain
 access to the Windows server, along with sensitive documents:
 ```
+![Night 3 Flag 3](https://user-images.githubusercontent.com/113793122/219986679-288db9ab-5e6a-4a41-b7ca-88315faf7aec.png)
+
 
 ## Summary Vulnerability Overview
 
@@ -302,9 +319,6 @@ test exploited these fields by injecting code that displayed sensitive company
 data.
 ```
 ```
-Images
-```
-```
 Affected Hosts: 192.168.14.35
 ```
 ```
@@ -330,10 +344,6 @@ Description: The Linux server was found at totallrekall.xyz. Utilizing directory
 team was able to navigate through various directories by adding various
 endings to the site address such as totallrekall.xyz/index.php/admin/.
 ```
-```
-Images
-```
-
 ```
 Affected Hosts: 192.168.13.1, 192.168.13.10, 192.168.13.11, 192.168.13.12, 192.168.13.13,
 192.168.13.14
@@ -367,9 +377,6 @@ this information, they would have unrestricted levels of access to the Linux
 server.
 ```
 ```
-Images
-```
-```
 Affected Hosts: 192.168.13.1, 192.168.13.10, 192.168.13.1192.168.13.141, 192.168.13.12, 192.168.13.13, 192.168.13.14
 ```
 ```
@@ -401,9 +408,6 @@ provided a lot of exploitable information, such as the username of the
 sysadmin.
 ```
 ```
-Images
-```
-```
 Affected Hosts: 192.168.14.35, 172.22.117.20, 172.22.117.100, 192.168.13.1, 192.168.13.10,
 192.168.13.11, 192.168.13.12, 192.168.13.13, 192.168.13.14
 ```
@@ -433,9 +437,6 @@ usernames and passwords. The Windows server is also vulnerable to FTP
 (File Transfer Protocol) exploits. Using Anonymous Authentication, a popular
 tool used by hackers, our team was able to gain access to the Windows
 server, along with sensitive documents.
-```
-```
-Images
 ```
 ```
 Affected Hosts: 172.22.117.20, 172.22.117.100
