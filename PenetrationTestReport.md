@@ -258,26 +258,24 @@ passwords. Critical
 ```
 The Windows server utilizes insecure applications such as SLMail. Critical
 ```
-The following summary tables represent an overview of the assessment findings for this penetration
-test:
 
+The following summary tables represent an overview of the assessment findings for this penetration test:
 
-Scan Type | Total
---- | --- |
-Hosts | 192.168.14.35, 172.22.117.20, 172.22.117.100, 192.168.13.1, 192.168.13.10, 192.168.13.11, 192.168.13.12, 192.168.13.13, 192.168.13.14
---- | --- |
-Ports | 110, 4444, 55454
+## Hosts and Ports 
 
-Exploitation Risk | Total
---- | --- |
-Critical | 5
---- | --- |
-High |
---- | --- |
-Medium |
---- | --- |
-Low |
+| Scan Type    | Total                                                                                                                                 | 
+|--------------|-----------                                                                                                                            |
+| Hosts        | 192.168.14.35, 172.22.117.20, 172.22.117.100, 192.168.13.1, 192.168.13.10, 192.168.13.11, 192.168.13.12, 192.168.13.13, 192.168.13.14 |
+| Ports        | 110, 4444, 55454                                                                                                                      | 
 
+## Risk and Severity Level 
+
+| Exploitation Risk | Total |                                                                                                                               
+|-------------------|-------|                                                                                                                           
+| Critical          |   5   |
+| High              |       |
+| Medium            |       |
+| Low               |       |
 
 ## Vulnerability Findings
 
