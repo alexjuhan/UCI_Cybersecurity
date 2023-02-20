@@ -144,10 +144,14 @@ Each finding was classified according to its severity, reflecting the risk each 
 pose to the business processes implemented by the application, based on the following criteria:
 
 **Critical** : Immediate threat to key business processes.
+
 **High** : Indirect threat to key business processes/threatto secondary business processes.
+
 **Medium** : Indirect or partial threat to business processes.
+
 **Low** : No direct threat exists; vulnerability maybe leveraged with other vulnerabilities.
-Informational: No threat; however, it is data thatmay be used in a future attack.
+
+**Informational**: No threat; however, it is data thatmay be used in a future attack.
 
 As the following grid shows, each threat is assessed in terms of both its potential impact on the
 business and the likelihood of exploitation:
@@ -261,6 +265,8 @@ The Windows server utilizes insecure applications such as SLMail. Critical
 
 The following summary tables represent an overview of the assessment findings for this penetration test:
 
+
+
 ## Hosts and Ports 
 
 | Scan Type    | Total                                                                                                                                 | 
@@ -281,24 +287,17 @@ The following summary tables represent an overview of the assessment findings fo
 
 
 Vulnerability 1 Findings
-
 ```
 Rekall’s website is vulnerable to code injection.
 ```
 ```
-Type: (Web app /Linux OS /WIndows OS)
-```
-```
-Web App
+Type: Web app 
 ```
 ```
 Risk Rating: Critical
 ```
-
-Description
-
 ```
-Rekall’s website contains multiple fields that allow text input. Our penetration
+Description: Rekall’s website contains multiple fields that allow text input. Our penetration
 test exploited these fields by injecting code that displayed sensitive company
 data.
 ```
@@ -308,33 +307,26 @@ Images
 ```
 Affected Hosts: 192.168.14.35
 ```
-
-Remediation
-
 ```
-Implement input validation to remove this vulnerability. Ensure that only
+Remediation: Implement input validation to remove this vulnerability. Ensure that only
 allowed inputs are accepted. One of the text fields had this employed, however
 our team circumvented it by changing “script” to “scSCRIPTript,” which avoided
 the detection of the second instance of the word script hidden inside the first.
 ```
 
 Vulnerability 2 Findings
-
 ```
 Our test uncovered a number of back-end vulnerabilities such as directory
 traversal.
 ```
 ```
-Type: (Web app /Linux OS/Windows OS)
+Type: Linux OS
 ```
 ```
 Risk Rating: Critical
 ```
-
-Description
-
 ```
-The Linux server was found at totallrekall.xyz. Utilizing directory traversal, our
+Description: The Linux server was found at totallrekall.xyz. Utilizing directory traversal, our
 team was able to navigate through various directories by adding various
 endings to the site address such as totallrekall.xyz/index.php/admin/.
 ```
@@ -347,32 +339,25 @@ Affected Hosts: 192.168.13.1, 192.168.13.10, 192.168.13.11, 192.168.13.12, 192.1
 192.168.13.14
 ```
 ```
-Remediation
-```
-```
-The remediation for this exploit is to validate the user input before processing
+Remediation: The remediation for this exploit is to validate the user input before processing
 it, similarly to the code injection exploit. After validating the input, the server
 should canonicalize the path (or implement the most direct pathway) to prevent
 a malicious user from deviating from the set pathway.
 ```
 
 Vulnerability 3 Findings
-
 ```
 The Linux server contains a variety of weaknesses to exploit such as poor
 password security.
 ```
 ```
-Type: (Web app/Linux OS/Windows OS)
+Type: Linux OS
 ```
 ```
 Risk Rating: Critical
 ```
-
-Description
-
 ```
-Our team was able to SSH (remote login) to the Linux server using the
+Description: Our team was able to SSH (remote login) to the Linux server using the
 username: alice, which was found when we performed a domain lookup on
 totalrekall.xyz. Our team guessed a number of basic passwords to attempt to
 login using this username and was successful with the use of password: alice.
@@ -388,10 +373,7 @@ Images
 Affected Hosts: 192.168.13.1, 192.168.13.10, 192.168.13.1192.168.13.141, 192.168.13.12, 192.168.13.13, 192.168.13.14
 ```
 ```
-Remediation
-```
-```
-Implement a stronger password policy. At the absolute minimum, passwords
+Remediation: Implement a stronger password policy. At the absolute minimum, passwords
 should contain a mix of alphanumeric characters, requiring a special character
 (such as !, ?, or +), and avoiding using common phrases, especially names.
 Additionally, requiring users to change their passwords more frequently can
@@ -399,7 +381,6 @@ reduce the threat that this risk provides.
 ```
 
 Vulnerability 4 Findings
-
 ```
 There is a plethora of publicly accessible information that is extremely
 sensitive, such as a GitHub repository that contains usernames and
@@ -411,11 +392,8 @@ Type: (Web app/Linux OS/Windows OS)
 ```
 Risk Rating: Critical
 ```
-
-Description
-
 ```
-Rekall has allowed data that risks the company’s security to be publicly
+Description: Rekall has allowed data that risks the company’s security to be publicly
 accessible online. For example, Rekall has a GitHub repository that contains
 sensitive information, including a username and password that our team used
 to exploit the windows server. Additionally, a domain lookup of the server
@@ -430,16 +408,12 @@ Affected Hosts: 192.168.14.35, 172.22.117.20, 172.22.117.100, 192.168.13.1, 192.
 192.168.13.11, 192.168.13.12, 192.168.13.13, 192.168.13.14
 ```
 ```
-Remediation
-```
-```
-Ensure that employees are being trained regularly in proper data
+Remediation: Ensure that employees are being trained regularly in proper data
 management. Using the results of this pentest, Rekall should remove all of the
 data that was discovered from online.
 ```
 
 Vulnerability 5 Findings
-
 ```
 The Windows server utilizes insecure applications such as SLMail.
 ```
@@ -449,11 +423,8 @@ Windows OS
 ```
 Risk Rating: Critical
 ```
-
-Description
-
 ```
-The Windows server utilizes an insecure application called Seattle Lab Mail, or
+Description: The Windows server utilizes an insecure application called Seattle Lab Mail, or
 SLMail. Using an offensive tool called Metasploit, our team was able to use
 this application as an entry point to login to the Windows server. Using this
 entry point through the SLMail exploit, our team was able to go further and use
@@ -463,7 +434,6 @@ usernames and passwords. The Windows server is also vulnerable to FTP
 tool used by hackers, our team was able to gain access to the Windows
 server, along with sensitive documents.
 ```
-
 ```
 Images
 ```
@@ -471,10 +441,9 @@ Images
 Affected Hosts: 172.22.117.20, 172.22.117.100
 ```
 ```
-Remediation
 ```
 ```
-Monitoring log files and remaining on the lookout for these exploits is the best
+Remediation: Monitoring log files and remaining on the lookout for these exploits is the best
 mitigation strategy.
 ```
 
