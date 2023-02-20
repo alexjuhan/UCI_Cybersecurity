@@ -19,11 +19,15 @@ Using the eval command, create a field called ratio that shows the ratio between
 
 Create a report using Splunk's table command to display the following fields in a statistics report:
 
-_time
-IP_ADDRESS
-DOWNLOAD_MEGABITS
-UPLOAD_MEGABITS
-ratio
+-_time
+
+-IP_ADDRESS
+
+-DOWNLOAD_MEGABITS
+
+-UPLOAD_MEGABITS
+
+-ratio
 
 1. Based on the report you created, what is the approximate date and time of the
     attack?
