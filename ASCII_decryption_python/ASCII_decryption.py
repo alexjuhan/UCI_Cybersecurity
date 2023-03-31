@@ -1,4 +1,4 @@
-#Given a modulus of n = 10403, I have decrypted eight ASCII characters (Using 'A' = 65, 'B' = 66, ... , 'Z' = 90):
+#Given a modulus of n = 10403, I have encrypted eight ASCII characters (Using 'A' = 65, 'B' = 66, ... , 'Z' = 90):
 # 7427,126,126,9196,7367,126,6642,4744
 #The private exponent is d = 8743. Use d to decrypt and recover the plaintext. Please post the decrypted word.
 
